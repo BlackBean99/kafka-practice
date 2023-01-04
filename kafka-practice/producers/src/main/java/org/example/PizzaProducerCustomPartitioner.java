@@ -14,8 +14,8 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
-public class PizzaProducer {
-    public static final Logger logger = LoggerFactory.getLogger(PizzaProducer.class.getName());
+public class PizzaProducerCustomPartitioner {
+    public static final Logger logger = LoggerFactory.getLogger(PizzaProducerCustomPartitioner.class.getName());
 
     public static void sendPizzaMessage(KafkaProducer<String, String> kafkaProducer,
                                         String topicName, int iterCount,
@@ -93,13 +93,8 @@ public class PizzaProducer {
         props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.56.101:9092");
         props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-//        props.setProperty(ProducerConfig.ACKS_CONFIG, "0");
-//        Idempotence는 max_inflight 값이 1~5사이로 해야한다.
-        props.setProperty(ProducerConfig.MAX_IN_FLIGHT_REQUESTS_PER_CONNECTION, "6");
-        // batch Setting
-        props.setProperty(ProducerConfig.BATCH_SIZE_CONFIG, "32000");
-        // linger.ms 설정
-        props.setProperty(ProducerConfig.LINGER_MS_CONFIG, "20");
+        props.setProperty("custom.specialKey", "P001");
+//        props.setProperty("partitioner.class", "CustomPartitioner");
         props.setProperty(ProducerConfig.PARTITIONER_CLASS_CONFIG, "org.example.CustomPartitioner");
 
 
