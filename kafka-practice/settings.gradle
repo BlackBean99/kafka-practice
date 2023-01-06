@@ -1,3 +1,5 @@
 rootProject.name = 'kafka-practice'
 include 'producers'
+include 'producers:kafka'
+findProject(':producers:kafka')?.name = 'kafka'
 
