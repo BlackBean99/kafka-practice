@@ -1,10 +1,7 @@
 package org.example;
 
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.errors.WakeupException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,10 +58,12 @@ public class ConsumerCommit {
                             record.key(), record.value(), record.partition(), record.offset(), record.value());
                 }
                 try {
-                    logger.info("Main thread is sleeping {} ms during while loop", loopCnt + 10000);
-                    Thread.sleep(10000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    if(consumerRecords.count() > 0) {
+                        kafkaConsumer.commitSync();
+                        logger.info("commit sync success");
+                    }
+                } catch (CommitFailedException e) {
+                    logger.error(e.getMessage());
                 }
             }
         }catch (WakeupException e){
