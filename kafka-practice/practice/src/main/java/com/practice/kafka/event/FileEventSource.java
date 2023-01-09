@@ -63,6 +63,19 @@ public class FileEventSource implements Runnable{
         this.filePointer = raf.getFilePointer();
     }
 
-    private void sendMessage(String line) {
+    private void sendMessage(String line) throws ExecutionException, InterruptedException {
+        String[] tokens = line.split(",");
+        String key = tokens[0];
+        StringBuffer value = new StringBuffer();
+        for (int i = 0; i < tokens.length; i++) {
+            if(i != (tokens.length) -1) {
+                value.append(tokens[i] + ",");
+            } else {
+                value.append(tokens[i]);
+            }
+        }
+        MessageEvent messageEvent = new MessageEvent(key,value.toString());
+        this.eventHandler.onMessage(messageEvent);
+
     }
 }
