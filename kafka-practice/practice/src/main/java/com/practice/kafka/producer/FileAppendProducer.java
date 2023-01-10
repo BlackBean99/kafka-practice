@@ -30,7 +30,8 @@ public class FileAppendProducer {
 
         File file =  new File("/Users/blackbean/IdeaProjects/KafkaProj01/kafka-practice/practice/src/main/resources/pizza_append.txt");        // KafkaProducer 객체 생성 -> ProducerRecords생성 -> send
         EventHandler eventHandler = new FileEventHandler(kafkaProducer, topicName, sync);
-        FileEventSource fileEventSource = new FileEventSource(20000, file, eventHandler);
+        // 1초마다 모니터링
+        FileEventSource fileEventSource = new FileEventSource(1000, file, eventHandler);
         Thread fileEventSourceThread = new Thread(fileEventSource);
         fileEventSourceThread.start();
         //메인쓰레드는 fileEventThread  가 동작할때까지 뭘 실행을 시켜야 한다. 안하면 바로 꺼진다.
