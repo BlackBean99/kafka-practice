@@ -96,6 +96,8 @@ public class FileToDBConsumer<K extends Serializable, V extends Serializable> {
                 ConsumerRecords<K, V> consumerRecords = this.kafkaConsumer.poll(Duration.ofMillis(durationMillis));
                 logger.info("consumerRecords count:" + consumerRecords.count());
                 if(consumerRecords.count() > 0) {
+                    // 한건이라도 실패하면 종료시키겠다 -> try
+                    // 한건정도는 OK?? 그럼 try 처리 하지 말자.
                     try {
                         processRecords(consumerRecords);
                     } catch(Exception e) {
@@ -154,6 +156,12 @@ public class FileToDBConsumer<K extends Serializable, V extends Serializable> {
     protected void close() {
         this.kafkaConsumer.close();
         this.orderDBHandler.close();
+    }
+
+    public FileToDBConsumer(KafkaConsumer<K, V> kafkaConsumer, List<String> topics, OrderDBHandler orderDBHandler) {
+        this.kafkaConsumer = kafkaConsumer;
+        this.topics = topics;
+        this.orderDBHandler = orderDBHandler;
     }
 
     public static void main(String[] args) {
