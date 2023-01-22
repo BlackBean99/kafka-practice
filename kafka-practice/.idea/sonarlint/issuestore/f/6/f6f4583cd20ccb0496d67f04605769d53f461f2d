@@ -1,0 +1,15 @@
+
+d
+java:S20958"NUse try-with-resources or close this "RandomAccessFile" in a "finally" clause.(Ç¡òº
+z
+java:S1149E"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(‘Ö‚àøÿÿÿÿ
+1
+java:S3626+"Remove this redundant jump.(ÉŠ©ƒ
+_
+java:S21470"DCombine this catch with the one at line 46, which has the same body.(åşŒóùÿÿÿÿ
+Z
+java:S21472"DCombine this catch with the one at line 46, which has the same body.(”ı¾
+t
+java:S2142."^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€
+N
+java:S1128",Remove this unused import 'java.io.IOError'.(ƒ¾Ğ§øÿÿÿÿ8ŞùÜÙ0

@@ -1,0 +1,25 @@
+
+[	java:S112O"FDefine and throw a dedicated exception instead of using a generic one.( ¡ú
+[	java:S112h"FDefine and throw a dedicated exception instead of using a generic one.(¤ÓÜ¨
+t
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ôâ–Ìşÿÿÿÿ
+p
+java:S2293‚"YReplace the type specification in this constructor call with the diamond operator ("<>").(¦ñ‹â
+=
+java:S2189<""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
+P
+java:S1161&":Add the "@Override" annotation above this method signature(“–ış
+t
+java:S2142,"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(í»Âµ
+O
+java:S62132":Rename this variable to not match a restricted identifier.(¥»è4
+[
+java:S16128"@Replace this lambda with method reference 'this::processRecord'.(íàÂ«úÿÿÿÿ
+U
+java:S62138":Rename this variable to not match a restricted identifier.(íàÂ«úÿÿÿÿ
+‚
+java:S1130O"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.( ¡ú
+‚
+java:S1130h"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¤ÓÜ¨
+Y
+java:S1128"CRemove this unused import 'org.apache.kafka.common.TopicPartition'.(¶§¤

@@ -20,8 +20,8 @@ public class FileProducer {
         // null, "hello world"
         Properties props = new Properties();
 //        bootstrap.servers,
-        props.setProperty("bootstrap.servers", "192.168.56.101:9092");
-        props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.56.101:9092");
+        props.setProperty("bootstrap.servers", "localhost:9092, localhost:9093, localhost:9094");
+        props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         props.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         // KafkaProducer object creation
@@ -64,9 +64,9 @@ public class FileProducer {
         kafkaProducer.send(producerRecord, (metadata, exception) -> {
             if (exception == null) {
                 logger.info("\n #### record metadata received ### \n" +
-                        "partition: " + metadata.partition() +
-                        "offset: " + metadata.offset() +
-                        "timestamp: " + metadata.timestamp()
+                        " partition: " + metadata.partition() +
+                        " offset: " + metadata.offset() +
+                        " timestamp: " + metadata.timestamp()
                 );
             } else {
                 logger.error("exception error from broker" + exception.getMessage());

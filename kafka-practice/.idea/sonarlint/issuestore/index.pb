@@ -3,3 +3,17 @@ q
 Apractice/src/main/java/com/practice/kafka/event/EventHandler.java,3/b/3bbc9d04a672846512c3d3db56caf122b42b2405
 u
 Epractice/src/main/java/com/practice/kafka/event/FileEventHandler.java,c/6/c66a91dc2d879f854e010e0ee02e6c6cea5334fd
+t
+Dpractice/src/main/java/com/practice/kafka/event/FileEventSource.java,f/6/f6f4583cd20ccb0496d67f04605769d53f461f2d
+s
+Cpractice/src/main/java/com/practice/kafka/event/FileUtilAppend.java,8/9/8941038664d5aebdfb2d1746966ddc13af2e722d
+q
+Apractice/src/main/java/com/practice/kafka/event/MessageEvent.java,0/c/0cbf4011e29c23d1ddba502251ef6eaa0a87c256
+l
+<producers/src/main/java/org/example/SimpleProducerASync.java,9/e/9ef431147421c9fb9aeba9604dea251bed6f34d0
+k
+;producers/src/main/java/org/example/SimpleProducerSync.java,2/c/2c772b4ea44554d68436b2111795e803da6fec4b
+m
+=producers/kafka/src/main/java/org/example/ConsumerCommit.java,9/0/90a665e43b424ee4db582efb0db159076e648522
+t
+Dpractice/src/main/java/com/practice/kafka/consumer/BaseConsumer.java,7/3/737785431c988a6d5c46602c0d87324270d17a3b

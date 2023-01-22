@@ -168,13 +168,13 @@ public class FileToDBConsumer<K extends Serializable, V extends Serializable> {
         String topicName = "file-topic";
 
         Properties props = new Properties();
-        props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "192.168.56.101:9092");
+        props.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         props.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         props.setProperty(ConsumerConfig.GROUP_ID_CONFIG, "file-group");
         props.setProperty(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
 
-        String url = "jdbc:postgresql://192.168.56.101:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String password = "postgres";
         OrderDBHandler orderDBHandler = new OrderDBHandler(url, user, password);
@@ -184,7 +184,7 @@ public class FileToDBConsumer<K extends Serializable, V extends Serializable> {
         fileToDBConsumer.initConsumer();
         String commitMode = "async";
 
-        fileToDBConsumer.pollConsumes(1000, commitMode);
+        fileToDBConsumer.pollConsumes(100, commitMode);
 
     }
 

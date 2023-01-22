@@ -77,7 +77,7 @@ public class OrderDBHandler {
     }
 
     public static void main(String[] args) {
-        String url = "jdbc:postgresql://192.168.56.101:5432/postgres";
+        String url = "jdbc:postgresql://localhost:5432/postgres";
         String user = "postgres";
         String password = "postgres";
         OrderDBHandler orderDBHandler = new OrderDBHandler(url, user, password);
